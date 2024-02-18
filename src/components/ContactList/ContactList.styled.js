@@ -36,6 +36,9 @@ cursor: pointer;
 &:hover,
 &:focus {
     background-color: lightsalmon;
+    /* & svg{
+        color: white;
+    } */
 }
 `
 
