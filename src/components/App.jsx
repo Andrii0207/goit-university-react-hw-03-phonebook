@@ -13,7 +13,6 @@ const initialContacts = [
   { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
   { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
 ];
-localStorage.setItem('contacts', JSON.stringify(initialContacts));
 
 export class App extends Component {
   state = {
@@ -22,12 +21,12 @@ export class App extends Component {
   };
 
   componentDidMount() {
-    const contacts = localStorage.getItem('contacts');
-    const parsedContacts = JSON.parse(contacts);
+    const contacts_LS = localStorage.getItem('contacts');
+    const parsedContacts = JSON.parse(contacts_LS);
 
-    if (parsedContacts) {
-      this.setState({ contacts: parsedContacts });
-    }
+    parsedContacts
+      ? this.setState({ contacts: parsedContacts })
+      : this.setState({ contacts: initialContacts });
   }
 
   componentDidUpdate(prevProps, prevState) {
